@@ -10,10 +10,21 @@ namespace PortalsCodingChallenges.Beecrowd
 {
   public static class Problem1018
   {
-    public static void Run(int value)
+    public static void Run()
     {
+      Console.WriteLine("Enter a value (int): ");
+      string? inputConsole = Console.ReadLine();
+      
+      if (string.IsNullOrEmpty(inputConsole))
+      {
+        Console.WriteLine("Invalid input. Please enter a valid integer.");
+        return;
+      }
+
+      int value = int.Parse(inputConsole);
       int[] notes = [100, 50, 20, 10, 5, 2, 1];
       Console.WriteLine(value);
+      Console.WriteLine("");
       foreach (int note in notes)
       {
         int count = value / note;
