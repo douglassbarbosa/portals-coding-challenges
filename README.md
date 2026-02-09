@@ -1,4 +1,5 @@
 ### 📄 **`README.md` – Portals Coding Challenges**  
+# 🚫 Project Status: Discontinued
 
 # 🚀 PortalsCodingChallenges  
 Welcome!
