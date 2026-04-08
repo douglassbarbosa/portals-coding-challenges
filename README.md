@@ -2,18 +2,18 @@
 # 🚫 Project Status: Discontinued
 
 # 🚀 PortalsCodingChallenges  
-Welcome!
+Welcome!  
 This is a .NET 8 solution designed for practicing coding challenges from various platforms using a TDD (Test-Driven Development) approach. This repository includes solutions for problems from platforms like **Beecrowd**, **HackerRank**, and **LeetCode**, with tests written in **MSTest**.  
-Feel free for Contributing!
+Feel free for Contributing!  
 Everyone is Welcome!
 
 ---
 
-## 📂 **Project Structure**  
+## 📂 **Project Structure**
 ```
 📂 PortalsCodingChallenges/
-│── 📂 PortalsCodingChallenges/        # Main Project (Solution Implementations)
-│── 📂 PortalsCodingChallengesTests/   # Test Project (MSTest Framework)
+│── 📂 DotNetConsole/                  # Main Project (Solution mplementations in C#)
+  │── 📂 PortalsCodingChallengesTests/   # Test Project (MSTest Framework)
 │── 📂 .github/                        # GitHub Actions (CI)
 │── 📄 PortalsCodingChallenges.sln     # Solution File
 │── 📄 README.md                       # Project Documentation
@@ -144,4 +144,4 @@ Feel free to fork this repository and submit pull requests!
 ---
 
 ## 📜 **License:**  
-This project is licensed under the MIT License.  
+This project is licensed under the MIT License.
