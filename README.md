@@ -1,6 +1,4 @@
 ### 📄 **`README.md` – Portals Coding Challenges**  
-# 🚫 Project Status: Discontinued
-
 # 🚀 PortalsCodingChallenges  
 Welcome!  
 This is a .NET 8 solution designed for practicing coding challenges from various platforms using a TDD (Test-Driven Development) approach. This repository includes solutions for problems from platforms like **Beecrowd**, **HackerRank**, and **LeetCode**, with tests written in **MSTest**.  
