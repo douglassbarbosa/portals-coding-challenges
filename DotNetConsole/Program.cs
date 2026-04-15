@@ -20,6 +20,8 @@ namespace DotNetConsole
             {
                 { 1000, new Problem1000() },
                 { 1001, new Problem1001() },
+                { 1002, new Problem1002() },
+                { 1003, new Problem1003() },
                 { 1004, new Problem1004(productCalculator) }
             };
 
