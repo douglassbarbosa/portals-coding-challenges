@@ -38,19 +38,17 @@ Use a hash map to store the complement of each number (target - nums[i]) and its
 
 ## Solution (C#)
 ```csharp
-public class LeetCode001 {
-    public static int[] TwoSum(int[] nums, int target)
-    {
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
         Dictionary<int, int> map = new Dictionary<int, int>();
-        for (int i = 0; i < nums.Length; i++)        {
+        for (int i = 0; i < nums.Length; i++) {
             int complement = target - nums[i];
-            if (map.ContainsKey(complement))
-            {
+            if (map.ContainsKey(complement)) {
                 return new int[] { map[complement], i };
             }
             map[nums[i]] = i;
         }
-        throw new ArgumentException("No two sum solution");
+        return new int[0]; // Should not reach here
     }
 }
 ```
