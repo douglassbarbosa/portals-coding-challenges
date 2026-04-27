@@ -69,7 +69,7 @@ public class LeetCode001Test
         // Arrange
         int[] nums = { 1, 5, 3, 7, 9, 2, 4 };
         int target = 11;
-        int[] expected = { 1, 4 };
+        int[] expected = { 4, 5 };
 
         // Act
         int[] result = LeetCode001.TwoSum(nums, target);
