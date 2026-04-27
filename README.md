@@ -1,145 +1,147 @@
-### 📄 **`README.md` – Portals Coding Challenges**  
-# 🚀 PortalsCodingChallenges  
-Welcome!  
-This is a .NET 8 solution designed for practicing coding challenges from various platforms using a TDD (Test-Driven Development) approach. This repository includes solutions for problems from platforms like **Beecrowd**, **HackerRank**, and **LeetCode**, with tests written in **MSTest**.  
-Feel free for Contributing!  
-Everyone is Welcome!
+<!-- By Douglas Barbosa -->
 
----
+# CodeChallengesLab
 
-## 📂 **Project Structure**
+CodeChallengesLab is a .NET 8 repository for practicing coding challenges using C#, xUnit, and Test-Driven Development.
+
+The goal is not only to solve algorithm problems, but also to demonstrate clean code, separation of concerns, testability, and maintainable project organization.
+
+## Current Scope
+
+- Beecrowd problems
+- LeetCode problems
+- xUnit tests
+- Fake input/output for console-based challenges
+- GitHub Actions CI
+
+## Project Structure
+
+```text
+CodeChallengesLab/
+├── CodeChallengesLab/                    # Production project
+│   ├── Beecrowd/
+│   │   ├── Application/
+│   │   ├── Domain/
+│   │   │   ├── IO/
+│   │   │   ├── Problems/
+│   │   │   └── Services/
+│   │   └── Infrastructure/
+│   ├── LeetCode/
+│   ├── Program.cs
+│   └── CodeChallengesLab.csproj
+├── CodeChallengesLab.Tests/              # Test project
+│   ├── Beecrowd/
+│   │   ├── Application/
+│   │   └── Domain/
+│   │       ├── IO/
+│   │       ├── Problems/
+│   │       └── Services/
+│   ├── LeetCode/
+│   └── CodeChallengesLab.Tests.csproj
+├── .github/workflows/ci.yml
+├── CodeChallengesLab.sln
+└── README.md
 ```
-📂 PortalsCodingChallenges/
-│── 📂 DotNetConsole/                  # Main Project (Solution mplementations in C#)
-  │── 📂 PortalsCodingChallengesTests/   # Test Project (MSTest Framework)
-│── 📂 .github/                        # GitHub Actions (CI)
-│── 📄 PortalsCodingChallenges.sln     # Solution File
-│── 📄 README.md                       # Project Documentation
-│── 📄 .gitignore                      # Git Ignore Rules
-```
 
----
+## Technology Stack
 
-## ⚙️ **Technology Stack**  
-- **.NET 8.0**  
-- **C#** (Object-Oriented Programming)  
-- **MSTest** (Unit Testing)  
-- **GitHub Actions** (CI/CD)  
-- **TDD** (Test-Driven Development)  
+- .NET 8
+- C#
+- xUnit
+- GitHub Actions
+- Test-Driven Development
+- Object-Oriented Programming
+- SOLID principles
 
----
+## Testing Strategy
 
-## 🧪 **TDD Approach**  
-This project follows the TDD methodology:  
-1. 🟥 **Red:** Write a failing test.  
-2. 🟩 **Green:** Implement the minimal code to pass the test.  
-3. 🟦 **Refactor:** Improve the code without changing functionality.  
+The test project mirrors the production structure.
 
----
+For Beecrowd problems, tests usually validate:
 
-## 🚀 **Running Tests**  
+- input reading
+- problem execution
+- expected output
 
-### 1️⃣ **Restore Dependencies:**  
+Console input and output are abstracted through:
+
+- `IInput`
+- `IOutput`
+
+The test project provides:
+
+- `FakeInput`
+- `FakeOutput`
+
+This allows deterministic tests without using the real console.
+
+## Running the Project
+
+From the repository root:
+
 ```bash
 dotnet restore
-```
-
-### 2️⃣ **Build the Solution:**  
-```bash
 dotnet build
-```
-
-### 3️⃣ **Run Tests:**  
-```bash
 dotnet test
 ```
 
----
+To run the console project:
 
-## 📂 **CI Configuration (`ci.yml`)**  
-```yaml
-name: Run Tests PortalsCodingChallenge
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup .NET 8
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0.x'
-
-      - name: Restore dependencies
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
-      - name: Run Tests with Coverage
-        run: dotnet test --configuration Release --no-restore --logger "console;verbosity=normal" --collect:"XPlat Code Coverage"
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: '**/TestResults/*.trx'
-
-      - name: Upload Coverage Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-results
-          path: '**/TestResults/**/coverage.cobertura.xml'
-
-    strategy:
-      fail-fast: true
-
-```
-
----
-
-## 🧪 **First Challenge – Problem1000 (Beecrowd)**  
-- **Description:** Print `Hello World!` to the console.  
-- **Test Status:** 🟥 **RED** (Test created but not implemented)  
-
----
-
-## 📌 **Initial Commit:**  
-1. ✅ Created the project structure.  
-2. ✅ Added the first test (`Problem1000Test.cs`) - Status: **RED**.  
-3. ✅ Added `README.md` and `.gitignore` to the repository.  
-
----
-
-## 📝 **First Commit Command:**  
 ```bash
-git add .
-git commit -m "chore: add README and first Problem1000 test (TDD - Red Phase)"
-git push origin main
+dotnet run --project CodeChallengesLab/CodeChallengesLab.csproj
 ```
 
----
+## Example
 
-## 🎯 **Next Steps:**  
-- 🟢 Implement `Problem1000` to pass the test (TDD - Green Phase).  
-- 🟦 Refactor the code for clarity and performance.  
-- 🧪 Add more coding challenges and their tests.  
+Beecrowd Problem 1004 receives two integer values and prints their product.
 
----
+Input:
 
-## 💡 **Contributing:**  
-Feel free to fork this repository and submit pull requests!  
+```text
+3
+9
+```
 
----
+Expected output:
 
-## 📜 **License:**  
-This project is licensed under the MIT License.
+```text
+PROD = 27
+```
+
+This is tested using fake input and fake output.
+
+## CI
+
+The repository uses GitHub Actions to restore, build, test, and collect coverage on every push to `main` and on pull requests.
+
+Recommended workflow steps:
+
+```yaml
+- name: Restore dependencies
+  run: dotnet restore CodeChallengesLab.sln
+
+- name: Build
+  run: dotnet build CodeChallengesLab.sln --configuration Release --no-restore
+
+- name: Run Tests with Coverage
+  run: dotnet test CodeChallengesLab.sln --configuration Release --no-build --logger "console;verbosity=normal" --collect:"XPlat Code Coverage"
+```
+
+## Roadmap
+
+- Add more Beecrowd problems
+- Add more LeetCode problems
+- Add HackerRank folder
+- Improve command-line problem selection
+- Add coverage badge
+- Add documentation per problem
+
+## Purpose
+
+This repository is part of a professional engineering portfolio focused on demonstrating practical software engineering skills through simple problems implemented with production-oriented practices.
+
+##
+### LINKS
+- [:house: HOME](https://github.com/douglassbarbosa/Home)
+- [🌐 douglasbarbosa.com](https://www.douglasbarbosa.com/)
+- [💼 LinkedIn](https://www.linkedin.com/in/douglasbarbosadev)
